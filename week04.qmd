@@ -678,14 +678,14 @@ What's wrong with the following code? Can you fix it?
 
 ```{r fix-code, eval=FALSE, error=TRUE}
 # Problem code:
-filter(babynames, name = "Sea")
-filter(babynames, name == Sea)
+filter(babynames, name = "Sea") # was '=' not '=='
+filter(babynames, name == Sea) # didn't have Sea in quotes
 ```
 
 **Your corrected code:**
 ```{r fix-code-student, eval=FALSE}
 # Fixed code here:
-
+filter(babynames, name == "Sea")
 
 ```
 
@@ -699,15 +699,18 @@ Which name was the most popular for a single gender in a single year? Compare ar
 
 ```{r popular-names-student, eval=FALSE}
 # Your code to find highest proportion:
-
+babynames |>
+  arrange(desc(prop))
 
 # Your code to find highest count:
-
+babynames |>
+  arrange(desc(n))
 
 ```
 
 **Your analysis:**
 - Are the results the same? Why or why not?
+The highest number is 99686 which was Linda in 1947. The largest proportion was 0.0815 (3 s.f.) which was John in 1880. They are not the same which makes sense when you consider populations would have been lower in 1880 so a higher proportion would still mean less people than a lower proportion of a higher population.
 
 
 
@@ -721,7 +724,10 @@ Write a pipeline that will:
 
 ```{r girls-2017-student, eval=FALSE}
 # Your pipeline here:
-
+babynames |>
+  filter(sex == "F", year == 2017) |>
+  select(name, n) |>
+  arrange(desc(n))
 
 ```
 
