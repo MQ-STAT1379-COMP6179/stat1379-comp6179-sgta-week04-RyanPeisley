@@ -816,9 +816,13 @@ chol_long <- cholesterol_data |>
   )
 
 chol_long |>
+ group_by(Type) |>
   mutate(
-    n = 
-  )
+   count = n(),
+   mean = mean('Number of Cholesterol'),
+   sd = sd('Number of Cholesterol')
+  ) |>
+  ungroup()
 chol_long
 ```
 
