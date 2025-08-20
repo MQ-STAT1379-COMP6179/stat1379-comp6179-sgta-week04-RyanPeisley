@@ -755,7 +755,7 @@ table4b  # Population
 - What problems do you see with the other tables?
 - How would you describe what each row and column represents in each table?
 
-*Write your analysis here:*
+*I think table 1 is tidy as each row is its own observation and each column has a unique variable. Table 2 has the same observations over multiple rows. Tables 4a and 4b don't include all relevant data. Table 3 has rate which is a combination of two variables in thee same column.*
 
 
 
@@ -806,6 +806,20 @@ cholesterol_data
 # Your tasks:
 # 1. Convert to long format
 # 2. Calculate n, mean, and standard deviation for each diet group
+
+
+chol_long <- cholesterol_data |>
+  pivot_longer(
+    cols = c(`oat_bran_free`, `oat_bran`),    # Columns to pivot
+    names_to = "Type",           # Name for the key column
+    values_to = "Number of Cholesterol"          # Name for the value column
+  )
+
+chol_long |>
+  mutate(
+    n = 
+  )
+chol_long
 ```
 
 ```{r cholesterol-solution-student, eval=FALSE}
