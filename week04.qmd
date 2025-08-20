@@ -1,7 +1,7 @@
 ---
 title: "STAT1379/COMP6179: ST4DS"
 subtitle: "Week 4 SGTA: Student template"
-author: "Your Name Here"
+author: "Ryan Peisley (48315486)"
 execute:
   echo: true
   eval: true
@@ -52,7 +52,7 @@ str(x)
 - What differences do you notice between these three ways of creating vectors?
 - Why might `typeof()` give different results?
 
-*Write your thoughts here:*
+*typeof() shows the stored type whilst class() refers to the object's class. So a value can be stored as a double whilst being numeric. Also the : method makes them integers.*
 
 
 
@@ -83,7 +83,7 @@ str(x)
 - What happens when you mix integers and doubles in a vector?
 - What does the `L` suffix do?
 
-*Write your thoughts here:*
+*a) it treats them all like doubles. b) the L makes the value an integer*
 
 
 
@@ -129,7 +129,7 @@ glue::glue("This unit is great.
 - Compare the different methods for combining strings
 - What's the difference between `paste()`, `cat()`, and `glue()`?
 
-*Write your analysis here:*
+*Paste combines a list of strings with gaps between them. Cat prints straight to the console and removes the quotation marks and glue allows you to print multiple words within the same quotation marks.*
 
 
 
@@ -171,7 +171,7 @@ str(x)
 - Explain why `1 <- 1` causes an error
 - What's the difference between `=` and `==`?
 
-*Write your explanation here:*
+*You can't assign a variable as a number name. = is another way of assigning like <-, == is used as an equality measure.*
 
 
 
@@ -199,7 +199,7 @@ as.character(x)
 
 - How are factors different from character vectors?
 
-*Write your thoughts here:*
+*Factors store the worded data as integer labels.*
 
 
 
@@ -224,7 +224,7 @@ m
 - Explain the difference between the two matrix creations above
 - How does R fill matrices by default?
 
-*Write your answer here:*
+*Fills by columns automatically and the second matrix creation specifies it is filled by row. They end up being transposes of each other.*
 
 
 
@@ -258,7 +258,7 @@ x
 - What happens when you don't provide enough values for an array?
 - How do 3-dimensional arrays work?
 
-*Write your explanation here:*
+*R will recycle/repeat values if not enough are provided. A 3D array is like a stack of multiple 2D arrays.*
 
 
 
@@ -286,7 +286,7 @@ x
 - How are lists different from vectors?
 - What are the advantages of named lists?
 
-*Write your analysis here:*
+*Vectors can only contain one data type, lists can contain multiple. Named lists make them easier to access*
 
 
 
@@ -336,7 +336,7 @@ x
 - What are the differences between data frames and tibbles?
 - When would you use `tribble()` instead of `tibble()`?
 
-*Write your thoughts here:*
+*Tribble is used when you want to fill by rows instead of columns. Data frames are different to tibbles as tibbles is quicker to run marginally and also when you select columns it keeps them as a tibble instead of converting it to a vector.*
 
 
 
@@ -348,6 +348,7 @@ Download the `test.csv` file from iLearn and place it in a `data` subfolder with
 
 ```{r loading-data, eval=FALSE}
 # Load CSV file
+pak::pak("here")
 here::here("data", "test.csv") # Check the path first
 x <- read_csv(file = here::here("data", "test.csv"))
 str(x)
@@ -367,7 +368,7 @@ waldo::compare(x, x_delim)
 - What information does `glimpse()` provide that `str()` doesn't?
 - Are there any differences between `read_csv()` and `read_delim()` results?
 
-*Write your observations here:*
+*Glimpse shows a few more data records for each column.*
 
 
 
@@ -399,7 +400,7 @@ waldo::compare(weather_data, weather_check)
 - After running this code, check your `data` folder - what file was created?
 - Why is it good practice to read the data back after saving?
 
-*Write your thoughts here:*
+*Another csv file was created. Opening it again will ensure you didn't make a mistake.*
 
 
 
